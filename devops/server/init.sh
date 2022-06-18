@@ -8,5 +8,4 @@ cp -R 'tests/server' '/tmp/'
 
 cd '/tmp/server'
 
-  http-server -a 127.0.0.1 --port 9000
-
+  http-server -a 127.0.0.1 --port $([ "${NODE_ENV}" = 'test' ] && echo '80' || echo '9000')

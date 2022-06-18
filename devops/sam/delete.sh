@@ -2,4 +2,4 @@
 
 set -e
 
-aws cloudformation delete-stack --stack-name serverlastic_sp1
+aws cloudformation delete-stack --stack-name ServerlasticFunctionStackSP1
