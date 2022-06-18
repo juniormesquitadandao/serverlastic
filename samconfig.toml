@@ -1,0 +1,12 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "serverlastic"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket"
+s3_prefix = "serverlastic"
+region = "us-east-1"
+confirm_changeset = false
+disable_rollback = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
