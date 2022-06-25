@@ -28,8 +28,8 @@
     "X-Forwarded-Port": "3000"
   },
   "requestContext": {
-    "accountId": "123456789012",
-    "apiId": "1234567890",
+    "accountId": "accountId",
+    "apiId": "appId",
     "http": {
       "method": "GET",
       "path": "/data.csv",
