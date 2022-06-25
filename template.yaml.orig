@@ -1,0 +1,50 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+<<<<<<< HEAD
+Description: serverlastic_sp1
+=======
+Description: serverlastic
+>>>>>>> sprint 1
+
+Resources:
+  ServerlasticFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+<<<<<<< HEAD
+      FunctionName: serverlastic_sp1
+=======
+      FunctionName: serverlastic
+>>>>>>> sprint 1
+      Handler: src/app.handler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Events:
+        Root:
+          Type: HttpApi
+          Properties:
+            Path: /
+            Method: Any
+        All:
+          Type: HttpApi
+          Properties:
+            Path: /{proxy+}
+            Method: Any
+      FunctionUrlConfig:
+        AuthType: NONE
+      Timeout: 1
+      MemorySize: 128
+
+Outputs:
+  ServerlasticFunctionHttpApi:
+    Description: API Gateway endpoint URL for Prod stage for Hello World function
+    Value: !Sub https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com
+  ServerlasticFunction:
+    Description: AWS::Lambda::Function
+    Value: !GetAtt ServerlasticFunction.Arn
+  ServerlasticFunctionRole:
+    Description: AWS::IAM::Role
+    Value: !GetAtt ServerlasticFunctionRole.Arn
+  ServerlasticFunctionUrl:
+    Description: AWS::Lambda::Url
+    Value: !GetAtt ServerlasticFunctionUrl.FunctionUrl

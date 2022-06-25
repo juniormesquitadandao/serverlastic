@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+alias http-server="${PWD}/node_modules/http-server/bin/http-server"
+
+cp -R 'tests/server' '/tmp/'
+
+cd '/tmp/server'
+
+<<<<<<< HEAD
+  http-server -a 127.0.0.1 --port 9000
+=======
+  http-server --port 80
+>>>>>>> sprint 1
+
