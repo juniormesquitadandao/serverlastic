@@ -5,23 +5,26 @@ const shell = require('shelljs');
 const fs = require('fs');
 const logFile = '/tmp/serverlastic.log';
 
-shell.config.fatal = true;
-shell.exec(`devops/server/init.sh 2> ${logFile}`, { async: true });
-shell.exec('sleep 0.100s');
+const server = (seconds) => {
+  shell.config.fatal = true;
+  shell.exec(`devops/server/init.sh 2> ${logFile}`, { async: true });
+  shell.exec(`sleep ${seconds}s`);
+}
 
 const request = async event => axios.request({
   withCredentials: true,
   method: event.requestContext.http.method,
-  headers: {
-    ...event.headers,
-    Cookie: (event.cookies || []).join('; ')
-  },
+  headers: event.headers,
   url: event.requestContext.http.path,
-  data: event.isBase64Encoded ? atob(event.body) : event.body,
+  data: event.isBase64Encoded ? Buffer.from(event.body, 'base64').toString('utf8') : event.body,
+  params: event.queryStringParameters,
   maxRedirects: 0,
   proxy: {
+    protocol: 'http',
+    host: '127.0.0.1',
     port: 9000
-  }
+  },
+  decompress: false,
 });
 
 const success = response => ({
@@ -36,7 +39,8 @@ const success = response => ({
 
     return o;
   }, {}),
-  body: typeof response.data === 'object' ? JSON.stringify(response.data) : response.data
+  body: typeof response.data === 'object' ? JSON.stringify(response.data) : response.data,
+  isBase64Encoded: false
 });
 
 const fail = ({response, message}) => ({
@@ -53,5 +57,7 @@ const fail = ({response, message}) => ({
   }, {}),
   body: typeof response?.data === 'object' ? JSON.stringify(response.data) : response?.data || fs.readFileSync(logFile).toString() || message
 });
+
+server(0.2);
 
 exports.handler = async event => request(event).then(success).catch(fail);

@@ -7,8 +7,8 @@ services:
         ARG_NODE_VERSION: 14.19.2
       context: .
     working_dir: /home/user/serverlastic
-    ports:
-      - 8000:8000
+    extra_hosts:
+      - dockerhost:host-gateway
     tty: true
     volumes:
       - app_local:/usr/local

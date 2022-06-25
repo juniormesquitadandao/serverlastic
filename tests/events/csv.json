@@ -1,8 +1,8 @@
 {
   "version": "2.0",
   "routeKey": "GET /{proxy+}",
-  "rawPath": "/script.js",
-  "rawQueryString": "key=value",
+  "rawPath": "/data.csv",
+  "rawQueryString": "",
   "cookies": [
     "name=value1",
     "name=value2"
@@ -32,7 +32,7 @@
     "apiId": "appId",
     "http": {
       "method": "GET",
-      "path": "/script.js",
+      "path": "/data.csv",
       "protocol": "HTTP/1.1",
       "sourceIp": "127.0.0.1",
       "userAgent": "Custom User Agent String"
@@ -47,11 +47,8 @@
   },
   "body": "",
   "pathParameters": {
-    "proxy": "script.js"
+    "proxy": "data.csv"
   },
   "stageVariables": null,
-  "isBase64Encoded": false,
-  "queryStringParameters": {
-    "key": "value"
-  }
+  "isBase64Encoded": false
 }

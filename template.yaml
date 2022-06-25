@@ -1,12 +1,12 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: serverlastic_sp1
+Description: ServerlasticFunction
 
 Resources:
   ServerlasticFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: serverlastic_sp1
+      FunctionName: ServerlasticFunctionSP1
       Handler: src/app.handler
       Runtime: nodejs14.x
       Architectures:
@@ -26,6 +26,7 @@ Resources:
         AuthType: NONE
       Timeout: 1
       MemorySize: 128
+      ReservedConcurrentExecutions: 1
 
 Outputs:
   ServerlasticFunctionHttpApi:
@@ -40,3 +41,6 @@ Outputs:
   ServerlasticFunctionUrl:
     Description: AWS::Lambda::Url
     Value: !GetAtt ServerlasticFunctionUrl.FunctionUrl
+  ServerlasticFunctionUrlPublicPermissions:
+    Description: AWS::Lambda::Permission
+    Value: !Ref ServerlasticFunctionUrlPublicPermissions

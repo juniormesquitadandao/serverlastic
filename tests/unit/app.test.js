@@ -31,4 +31,22 @@ describe('App', () => {
 
     expect(response.body).toEqual(js.toString());
   });
+
+  it('must return json', async () => {
+    const event = require('../events/json.json');
+    const json = fs.readFileSync('tests/server/data.json');
+
+    const response = await app.handler(event);
+
+    expect(JSON.parse(response.body)).toEqual(JSON.parse(json.toString()));
+  });
+
+  it('must return csv', async () => {
+    const event = require('../events/csv.json');
+    const csv = fs.readFileSync('tests/server/data.csv');
+
+    const response = await app.handler(event);
+
+    expect(response.body).toEqual(csv.toString());
+  });
 });
