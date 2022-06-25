@@ -1,9 +1,0 @@
-#!/bin/sh
-
-set -e
-
-<<<<<<< HEAD
-aws cloudformation delete-stack --stack-name ServerlasticFunctionStackSP1
-=======
-aws cloudformation delete-stack --stack-name serverlastic_sp1
->>>>>>> main
