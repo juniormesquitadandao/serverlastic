@@ -6,9 +6,8 @@ Resources:
   ServerlasticFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: ServerlasticFunctionSP1
-      Handler: src/app.handler
-      Runtime: nodejs14.x
+      FunctionName: ServerlasticFunctionSP2
+      PackageType: Image
       Architectures:
         - x86_64
       Events:
@@ -27,6 +26,12 @@ Resources:
       Timeout: 1
       MemorySize: 128
       ReservedConcurrentExecutions: 1
+    Metadata:
+      DockerContext: ../
+      Dockerfile: Dockerfile.sam
+      DockerTag: latest
+      DockerBuildArgs:
+        ARG_SERVER_IMAGE: serverlastic_app
 
 Outputs:
   ServerlasticFunctionHttpApi:

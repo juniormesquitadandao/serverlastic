@@ -33,18 +33,6 @@ RUN getent passwd '1000' | cut -d: -f1 | { read username; [ -z "$username" ] && 
 USER user
 WORKDIR /home/user
 
-RUN wget -nv 'https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip' && \
-  unzip 'aws-sam-cli-linux-x86_64.zip' -d 'sam-installation' && \
-  sudo ./sam-installation/install && \
-  rm -rf 'aws-sam-cli-linux-x86_64.zip'
-
-RUN wget https://github.com/mikefarah/yq/releases/download/v4.25.1/yq_linux_386.tar.gz -O - |\
-  tar xz && mv yq_linux_386 /usr/local/bin/yq
-
-RUN sudo apt install siege
-
 RUN locale && \
   echo "node: `node --version`" && \
-  sam --version && \
-  yq --version && \
-  siege --version
+  echo "http-server: `http-server --version`"

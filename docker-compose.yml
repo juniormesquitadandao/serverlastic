@@ -4,11 +4,13 @@ services:
     build:
       args:
         ARG_LINUX_LOCALE: en_US.UTF-8
-        ARG_NODE_VERSION: 14.19.2
+        ARG_NODE_VERSION: 16.16.0
       context: .
     working_dir: /home/user/serverlastic
     extra_hosts:
       - dockerhost:host-gateway
+    ports:
+      - 8080:8080
     tty: true
     volumes:
       - app_local:/usr/local

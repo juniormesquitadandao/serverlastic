@@ -7,7 +7,7 @@ const logFile = '/tmp/serverlastic.log';
 
 const server = (seconds) => {
   shell.config.fatal = true;
-  shell.exec(`devops/server/init.sh 2> ${logFile}`, { async: true });
+  shell.exec(`devops/server/start.sh 2> ${logFile}`, { async: true });
   shell.exec(`sleep ${seconds}s`);
 }
 
@@ -58,6 +58,6 @@ const fail = ({response, message}) => ({
   body: typeof response?.data === 'object' ? JSON.stringify(response.data) : response?.data || fs.readFileSync(logFile).toString() || message
 });
 
-server(0.2);
+server(0.3);
 
 exports.handler = async event => request(event).then(success).catch(fail);

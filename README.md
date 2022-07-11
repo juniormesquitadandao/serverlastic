@@ -1,6 +1,6 @@
 # Serverlastic
 
-![Architecture](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/sp1/architecture.png)
+![Architecture](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/sam/architecture.png)
 
 - Configure host: https://github.com/juniormesquitadandao/gerlessver
 - Install aws cli: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-version.html
@@ -8,34 +8,33 @@
 - Configure credentials: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html
 ```sh
 cd serverlastic
-  chmod +x devops/**/*.sh
-  ./devops/compose/build.sh
-  ./devops/compose/up.sh
-
-  ./devops/compose/bash.sh
+  docker compose build
+  docker compose up -d
+  docker compose exec app bash
     node --version
-    sam --version
-    yq --version
-    siege --version
-    exit
-
-  ./devops/sam/install.sh
-  ./devops/sam/test.sh
+    npm install
+    npm start
+    browser: http://localhost:8080
     CTRL+C
+    exit
+  docker compose down
 
-  ./devops/sam/build.sh
-  ./devops/sam/local.sh
+  chmod +x sam/devops/**/*.sh
+
+  ./sam/devops/lambda/build.sh
+  ./sam/devops/lambda/install.sh
+  ./sam/devops/lambda/test.sh
+    CTRL+C
+  ./sam/devops/lambda/local.sh
     CTRL + SHIFT + T
       cd serverlastic
-        ./devops/sam/benchmarking.sh 2 http://dockerhost:3000
+        ./sam/devops/lambda/benchmarking.sh 2 http://dockerhost:3000
     browser: http://localhost:3000
     CTRL+C
 
-  ./devops/sam/deploy.sh
+  ./sam/devops/lambda/deploy.sh
     browser: ServerlasticFunctionUrl.FunctionUrl
-    ./devops/sam/benchmarking.sh 2 ServerlasticFunctionUrl.FunctionUrl
+    ./sam/devops/lambda/benchmarking.sh 2 ServerlasticFunctionUrl.FunctionUrl
 
-  ./devops/compose/down.sh
-
-  ./devops/sam/delete.sh
+  ./sam/devops/lambda/delete.sh
 ```
