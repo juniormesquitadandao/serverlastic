@@ -1,6 +1,6 @@
 # Serverlastic
 
-![Architecture](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/sp2/sam/architecture.png)
+![Architecture](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/sam/architecture.png)
 
 - Configure host: https://github.com/juniormesquitadandao/gerlessver
 - Install aws cli: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-version.html
