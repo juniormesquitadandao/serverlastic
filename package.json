@@ -1,0 +1,15 @@
+{
+  "name": "serverlastic",
+  "description": "serverlastic",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "http-server app"
+  },
+  "dependencies": {
+    "http-server": "14.1.1"
+  },
+  "engines": {
+    "node": "16.16.0"
+  }
+}
