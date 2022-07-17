@@ -15,7 +15,7 @@ mv /tmp/serverlastic/serverlastic-main/Dockerfile.sam .
 sed "s/YOUR_SERVER_IMAGE/$(basename $PWD)_app/g" -i sam/template.yaml
 sed "s/YOUR_FUNCTION_NAME/$(basename $PWD)_function/g" -i sam/template.yaml
 
-sed "s/YOUR_STACK_NAME/$(basename $PWD)_function_stack/g" -i sam/config.toml
+sed "s/YOUR_STACK_NAME/$(basename $PWD | sed 's/_/-/g')-function-stack/g" -i sam/config.toml
 sed "s/YOUR_S3_PREFIX/$(basename $PWD)_function/g" -i sam/config.toml
 
 echo 'Stack Name? ENTER'
@@ -27,8 +27,13 @@ echo 'Function Url may not have authorization defined, Is this okay? y'
 echo 'Save arguments to configuration file? Y'
 echo 'SAM configuration file [../sam/config.toml]? ENTER'
 echo 'SAM configuration environment? ENTER'
+echo 'Create managed ECR repositories for all functions? Y'
 
 chmod +x sam/devops/**/*.sh
+
+mkdir -p sam/.aws-sam/build
+
+cp sam/template.yaml sam/.aws-sam/build/template.yaml
 
 ./sam/devops/lambda/deploy.sh --guided
 
