@@ -2,4 +2,4 @@
 
 set -e
 
-echo 'ok'
+wget https://github.com/juniormesquitadandao/serverlastic/archive/refs/heads/main.zip
