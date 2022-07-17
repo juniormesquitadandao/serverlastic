@@ -11,7 +11,7 @@
 
 ```sh
 cd project
-  wget -q https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/install.sh -O serverlatic.sh && sh serverlatic.sh
+  wget -q https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/install.sh -O serverlastic.sh && sh serverlastic.sh
 
   ./sam/devops/lambda/build.sh
   ./sam/devops/lambda/install.sh
