@@ -31,10 +31,6 @@ echo 'Create managed ECR repositories for all functions? Y'
 
 chmod +x sam/devops/**/*.sh
 
-mkdir -p sam/.aws-sam/build
-
-cp sam/template.yaml sam/.aws-sam/build/template.yaml
-
-./sam/devops/lambda/deploy.sh --guided
+sam deploy --template-file sam/template.yaml --config-file "${PWD}/sam/config.toml" --guided
 
 rm -rf /tmp/serverlastic.zip /tmp/serverlastic
