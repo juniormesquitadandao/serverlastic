@@ -2,7 +2,7 @@
 
 set -e
 
-rm -rf /tmp/serverlastic.zip /tmp/serverlastic sam Dockerfile.sam
+rm -rf /tmp/serverlastic.zip /tmp/serverlastic serverlastic.sh sam Dockerfile.sam
 
 wget https://github.com/juniormesquitadandao/serverlastic/archive/refs/heads/main.zip -q --show-progress -O /tmp/serverlastic.zip
 
@@ -17,6 +17,8 @@ sed "s/YOUR_FUNCTION_NAME/$(basename $PWD)_function/g" -i sam/template.yaml
 
 sed "s/YOUR_STACK_NAME/$(basename $PWD | sed 's/_/-/g')-function-stack/g" -i sam/config.toml
 sed "s/YOUR_S3_PREFIX/$(basename $PWD)_function/g" -i sam/config.toml
+
+rm -rf /tmp/serverlastic.zip /tmp/serverlastic serverlastic.sh
 
 echo 'Stack Name? ENTER'
 echo 'AWS Region? ENTER'
@@ -35,4 +37,4 @@ chmod +x sam/devops/**/*.sh
 
 sam deploy --template-file sam/template.yaml --config-file "${PWD}/sam/config.toml" --guided
 
-rm -rf /tmp/serverlastic.zip /tmp/serverlastic
+
