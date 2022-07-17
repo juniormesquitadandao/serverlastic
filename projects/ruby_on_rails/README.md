@@ -21,6 +21,24 @@ cd serverlastic/projects/ruby_on_rails
     rails s
     # Brower: http://localhost:3001
     # Press: CTRL+C
+
+    ./sam/devops/lambda/build.sh
+    ./sam/devops/lambda/install.sh
+    ./sam/devops/lambda/test.sh
+      CTRL+C
+    ./sam/devops/lambda/local.sh
+      CTRL + SHIFT + T
+        cd serverlastic/projects/ruby_on_rails
+          ./sam/devops/lambda/benchmarking.sh 2 http://dockerhost:3000
+      browser: http://localhost:3000
+      CTRL+C
+
+    ./sam/devops/lambda/deploy.sh
+      browser: ServerlasticFunctionUrl.FunctionUrl
+      ./sam/devops/lambda/benchmarking.sh 2 ServerlasticFunctionUrl.FunctionUrl
+
+    ./sam/devops/lambda/delete.sh
+
     exit
   docker compose down
 ```
