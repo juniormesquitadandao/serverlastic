@@ -38,3 +38,4 @@ cd serverlastic
 
   ./sam/devops/lambda/delete.sh
 ```
+curl -o https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/sp3/install.sh | sh
