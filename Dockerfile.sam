@@ -57,7 +57,7 @@ RUN cd "/home/user/serverlastic" && \
   mv 'serverlastic/sam' 'sam' && \
   rm -rf 'serverlastic/.aws-sam' && \
   rm -rf 'serverlastic/.git' && \
-  zip -rm1q 'serverlastic.zip' 'serverlastic'
+  zip -rm0q 'serverlastic.zip' 'serverlastic'
 
 RUN locale && \
   echo "npx: `npx --version`" && \
