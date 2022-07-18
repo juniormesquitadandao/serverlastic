@@ -16,7 +16,14 @@ const server = async seconds => {
 const request = async event => axios.request({
   withCredentials: true,
   method: event.requestContext.http.method,
-  headers: {...event.headers, Origin: `${event.headers.Origin.split(':')[0]}://null` },
+  headers: Object.keys(event.headers).reduce((o, k) => {
+    const v = event.headers[k];
+
+    if (k !== 'Origin')
+      o[k] = v;
+
+    return o;
+  }, {}),
   url: event.requestContext.http.path,
   data: event.isBase64Encoded ? Buffer.from(event.body, 'base64').toString('utf8') : event.body,
   params: event.queryStringParameters,
