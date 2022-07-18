@@ -5,10 +5,12 @@ const shell = require('shelljs');
 const fs = require('fs');
 const logFile = '/tmp/serverlastic.log';
 
-const server = (seconds) => {
+const server = async seconds => {
   shell.config.fatal = true;
+  shell.exec('unzip -q /home/user/serverlastic.zip -d /tmp');
+  shell.exec(`sleep ${seconds.unzip}s`);
   shell.exec(`devops/server/start.sh 2> ${logFile}`, { async: true });
-  shell.exec(`sleep ${seconds}s`);
+  shell.exec(`sleep ${seconds.start}s`);
 }
 
 const request = async event => axios.request({
@@ -58,6 +60,6 @@ const fail = ({response, message}) => ({
   body: typeof response?.data === 'object' ? JSON.stringify(response.data) : response?.data || fs.readFileSync(logFile).toString() || message
 });
 
-server(0.3);
+server({unzip: 0.1, start: 0.3});
 
 exports.handler = async event => request(event).then(success).catch(fail);
