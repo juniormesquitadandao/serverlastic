@@ -16,7 +16,7 @@ const server = async seconds => {
 const request = async event => axios.request({
   withCredentials: true,
   method: event.requestContext.http.method,
-  headers: event.headers,
+  headers: {...event.headers, Origin: 'http://null'},
   url: event.requestContext.http.path,
   data: event.isBase64Encoded ? Buffer.from(event.body, 'base64').toString('utf8') : event.body,
   params: event.queryStringParameters,
@@ -28,6 +28,7 @@ const request = async event => axios.request({
   },
   decompress: false,
 });
+
 
 const success = response => ({
   statusCode: response.status,
