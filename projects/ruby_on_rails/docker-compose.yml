@@ -5,7 +5,7 @@ services:
       args:
         ARG_LINUX_LOCALE: en_US.UTF-8
         ARG_RUBY_VERSION: 3.1.2
-        ARG_NODE_VERSION: 18.2.0
+        ARG_NODE_VERSION: 16.16.0
       context: .
     depends_on:
       - postgresql
