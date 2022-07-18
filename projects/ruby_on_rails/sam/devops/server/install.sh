@@ -6,4 +6,6 @@ bundle install
 
 npm install
 
-RAILS_ENV=production rails assets:precompile
+RAILS_ENV=production \
+  NODE_ENV=production \
+  rails assets:precompile

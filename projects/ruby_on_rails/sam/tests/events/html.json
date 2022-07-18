@@ -24,6 +24,9 @@
     "Accept-Encoding": "gzip, deflate, br",
     "Accept-Language": "en-US,en;q=0.9,pt;q=0.8,la;q=0.7",
     "Cookie": "name1=value; name2=value",
+    "Host": "localhost:3000",
+    "Origin": "http://localhost:3000",
+    "Referer": "http://localhost:3000/",
     "If-Modified-Since": "Sat, 18 Jun 2022 01:34:31 GMT",
     "X-Forwarded-Proto": "http",
     "X-Forwarded-Port": "3000"

@@ -11,6 +11,8 @@ cd /tmp/serverlastic
   fi
 
   RAILS_ENV=production \
-    RAILS_MAX_THREADS=1 \
+    NODE_ENV=production \
     RAILS_SERVE_STATIC_FILES=true \
+    RAILS_LOG_TO_STDOUT=true \
+    RAILS_MAX_THREADS=1 \
     rails s -b '127.0.0.1' --port $PORT

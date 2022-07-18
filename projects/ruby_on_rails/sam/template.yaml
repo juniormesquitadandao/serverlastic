@@ -23,9 +23,12 @@ Resources:
             Method: Any
       FunctionUrlConfig:
         AuthType: NONE
-      Timeout: 6
-      MemorySize: 300
+      Timeout: 10
+      MemorySize: 2048
       ReservedConcurrentExecutions: 1
+      Environment:
+        Variables:
+          DATABASE_URL: YOUR_DATABASE_URL
     Metadata:
       DockerContext: ../
       Dockerfile: Dockerfile.sam
