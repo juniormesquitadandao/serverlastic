@@ -24,7 +24,7 @@ Resources:
       FunctionUrlConfig:
         AuthType: NONE
       Timeout: 6
-      MemorySize: 256
+      MemorySize: 300
       ReservedConcurrentExecutions: 1
     Metadata:
       DockerContext: ../
