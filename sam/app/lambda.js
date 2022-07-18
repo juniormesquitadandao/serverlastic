@@ -16,14 +16,16 @@ const server = async seconds => {
 const request = async event => axios.request({
   withCredentials: true,
   method: event.requestContext.http.method,
-  headers: Object.keys(event.headers).reduce((o, k) => {
-    const v = event.headers[k];
+  headers: (()=>{
+    const headers = {...event.headers};
 
-    if (k !== 'Origin')
-      o[k] = v;
+    delete headers.origin;
+    delete headers.Origin;
 
-    return o;
-  }, {}),
+    headers.origin = `${headers['x-forwarded-proto'] || headers['X-Forwarded-Proto']}://null`;
+
+    return headers;
+  })(),
   url: event.requestContext.http.path,
   data: event.isBase64Encoded ? Buffer.from(event.body, 'base64').toString('utf8') : event.body,
   params: event.queryStringParameters,
