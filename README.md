@@ -11,7 +11,8 @@
 
 ```sh
 cd project
-  wget -q https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/install.sh -O serverlastic.sh && sh serverlastic.sh
+  wget -q https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/install.sh \
+    -O serverlastic.sh && sh serverlastic.sh
 
   # Update: sam/devops/server/install.sh
   # Update: sam/devops/server/server.sh
