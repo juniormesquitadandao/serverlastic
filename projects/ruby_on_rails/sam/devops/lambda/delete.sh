@@ -2,4 +2,4 @@
 
 set -e
 
-aws cloudformation delete-stack --stack-name ServerlasticFunctionStackSP2
+aws cloudformation delete-stack --stack-name ruby-on-rails-function-stack
