@@ -37,4 +37,3 @@ chmod +x sam/devops/**/*.sh
 
 sam deploy --template-file sam/template.yaml --config-file "${PWD}/sam/config.toml" --guided
 
-
