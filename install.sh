@@ -18,6 +18,8 @@ sed "s/YOUR_FUNCTION_NAME/$(basename $PWD)_function/g" -i sam/template.yaml
 sed "s/YOUR_STACK_NAME/$(basename $PWD | sed 's/_/-/g')-function-stack/g" -i sam/config.toml
 sed "s/YOUR_S3_PREFIX/$(basename $PWD)_function/g" -i sam/config.toml
 
+sed "s/YOUR_STACK_NAME/$(basename $PWD | sed 's/_/-/g')-function-stack/g" -i sam/devops/lambda/delete.sh
+
 rm -rf /tmp/serverlastic.zip /tmp/serverlastic serverlastic.sh
 
 echo 'Stack Name? ENTER'
