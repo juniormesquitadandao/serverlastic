@@ -79,7 +79,7 @@ const fail = ({response, message}) => ({
 });
 
 if (process.env.NODE_ENV === 'test')
-  server({unzip: 0.0, start: 1.1});
+  server({unzip: 0.0, start: 1.3});
 else
   server({unzip: 0.1, start: 5.9});
 
