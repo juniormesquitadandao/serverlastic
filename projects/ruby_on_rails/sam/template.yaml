@@ -24,7 +24,7 @@ Resources:
       FunctionUrlConfig:
         AuthType: NONE
       Timeout: 10
-      MemorySize: 2048
+      MemorySize: 256
       ReservedConcurrentExecutions: 1
       Environment:
         Variables:
