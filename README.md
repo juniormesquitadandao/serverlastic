@@ -63,9 +63,10 @@ cd project
 ```
 ![Deploy 01](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/deploy-01.png)
 ![Deploy 02](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/deploy-02.png)
-![Cloud Metrics](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/cloud-metrics.png)
 ![Cloud Browser](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/cloud-browser.png)
 ![Cloud Benchmarking](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/cloud-benchmarking.png)
+![Cloud Metrics](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/cloud-metrics.png)
+![Cloud Logs](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/cloud-logs.png)
 - Delete resources:
 ```sh
 cd project
