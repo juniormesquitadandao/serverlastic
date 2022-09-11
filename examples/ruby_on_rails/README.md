@@ -17,13 +17,13 @@ cd serverlastic/examples/ruby_on_rails
     npm install
     rails db:create db:migrate
     rails s
-    # Brower: http://localhost:3001
+    # Brower: http://localhost:3000
     # Press: CTRL+C
 
     exit
   docker compose down
 
-  sh ./sam/devops/lambda/chmod.sh
+  sh ./sam/devops/chmod.sh
   ./sam/devops/lambda/build.sh
   ./sam/devops/lambda/install.sh
   ./sam/devops/lambda/test.sh

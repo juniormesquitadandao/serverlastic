@@ -2,7 +2,7 @@
 
 Elasticity of any web server with docker and aws lambda.
 
-![Architecture](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/sam/architecture.png)
+![Architecture](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/architecture.png)
 
 ### How it works?
 
@@ -35,6 +35,10 @@ cd project
     # CTRL+C
   exit
 ```
+![Build 01](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/build-01.png)
+![Build 02](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/build-02.png)
+![Test 01](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/test-01.png)
+![Test 02](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/test-02.png)
 - Run local:
 ```sh
 cd project
@@ -45,6 +49,9 @@ cd project
     # browser: http://localhost:3001
   exit
 ```
+![Local Server](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/local-server.png)
+![Local Browser](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/local-browser.png)
+![Local Benchmarking](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/local-benchmarking.png)
 - Run cloud:
 ```sh
 cd project
@@ -54,6 +61,11 @@ cd project
   ./sam/devops/lambda/benchmarking.sh 2 ServerlasticFunctionUrl.FunctionUrl
   exit
 ```
+![Deploy 01](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/deploy-01.png)
+![Deploy 02](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/deploy-02.png)
+![Cloud Metrics](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/cloud-metrics.png)
+![Cloud Browser](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/cloud-browser.png)
+![Cloud Benchmarking](https://raw.githubusercontent.com/juniormesquitadandao/serverlastic/main/images/cloud-benchmarking.png)
 - Delete resources:
 ```sh
 cd project
