@@ -1,0 +1,12 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "node-http-server-function-stack"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-*"
+s3_prefix = "node_on_http_server_function"
+region = "us-east-1"
+confirm_changeset = false
+disable_rollback = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = ["ServerlasticFunction=*.dkr.ecr.us-east-1.amazonaws.com/node_on_http_server/node_on_http_server_function"]

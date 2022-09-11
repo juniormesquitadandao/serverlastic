@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  app:
+    build:
+      args:
+        ARG_LINUX_LOCALE: en_US.UTF-8
+        ARG_NODE_VERSION: 16.16.0
+      context: .
+    working_dir: /home/user/node_on_http_server
+    extra_hosts:
+      - dockerhost:host-gateway
+    ports:
+      - 8080:8080
+    tty: true
+    volumes:
+      - app_local:/usr/local
+      - ~/.ssh:/home/user/.ssh
+      - ~/.gitconfig:/home/user/.gitconfig
+      - ~/.bash_history:/home/user/.bash_history
+      - ~/.aws:/home/user/.aws
+      - .:/home/user/node_on_http_server
+volumes:
+  app_local:

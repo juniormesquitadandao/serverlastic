@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: ServerlasticFunction
+
+Resources:
+  ServerlasticFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: YOUR_PROJECT_ORIGIN_function
+      PackageType: Image
+      Architectures:
+        - x86_64
+      Events:
+        Root:
+          Type: HttpApi
+          Properties:
+            Path: /
+            Method: Any
+        All:
+          Type: HttpApi
+          Properties:
+            Path: /{proxy+}
+            Method: Any
+      FunctionUrlConfig:
+        AuthType: NONE
+      Timeout: 3
+      MemorySize: 128
+      ReservedConcurrentExecutions: 1
+      Environment:
+        Variables:
+          DATABASE_URL: postgres://user:pass@rds.*.us-east-1.rds.amazonaws.com:port
+
+    Metadata:
+      DockerContext: ../
+      Dockerfile: Dockerfile.sam
+      DockerTag: latest
+      DockerBuildArgs:
+        ARG_SERVER_IMAGE: YOUR_PROJECT_ORIGIN-app
+
+Outputs:
+  ServerlasticFunctionHttpApi:
+    Description: API Gateway endpoint URL for Prod stage for Hello World function
+    Value: !Sub https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com
+  ServerlasticFunction:
+    Description: AWS::Lambda::Function
+    Value: !GetAtt ServerlasticFunction.Arn
+  ServerlasticFunctionRole:
+    Description: AWS::IAM::Role
+    Value: !GetAtt ServerlasticFunctionRole.Arn
+  ServerlasticFunctionUrl:
+    Description: AWS::Lambda::Url
+    Value: !GetAtt ServerlasticFunctionUrl.FunctionUrl
+  ServerlasticFunctionUrlPublicPermissions:
+    Description: AWS::Lambda::Permission
+    Value: !Ref ServerlasticFunctionUrlPublicPermissions

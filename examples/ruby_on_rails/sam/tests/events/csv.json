@@ -1,0 +1,55 @@
+{
+  "version": "2.0",
+  "routeKey": "GET /{proxy+}",
+  "rawPath": "/samples/data.csv",
+  "rawQueryString": "",
+  "cookies": [
+    "name=value1",
+    "name=value2"
+  ],
+  "headers": {
+    "Connection": "keep-alive",
+    "Sec-Ch-Ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"102\", \"Google Chrome\";v=\"102\"",
+    "If-None-Match": "W/\"4064818-370-2022-06-18T01:31:12.356Z\"",
+    "If-Modified-Since": "Sat, 18 Jun 2022 01:31:12 GMT",
+    "Sec-Ch-Ua-Mobile": "?0",
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36",
+    "Sec-Ch-Ua-Platform": "\"Linux\"",
+    "Accept": "*/*",
+    "Sec-Fetch-Site": "same-origin",
+    "Sec-Fetch-Mode": "no-cors",
+    "Sec-Fetch-Dest": "script",
+    "Host": "localhost:3001",
+    "Origin": "http://localhost:3001",
+    "Referer": "http://localhost:3001/products",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "en-US,en;q=0.9,pt;q=0.8,la;q=0.7",
+    "Cookie": "name1=value; name2=value",
+    "X-Forwarded-Proto": "http",
+    "X-Forwarded-Port": "3001"
+  },
+  "requestContext": {
+    "accountId": "accountId",
+    "apiId": "appId",
+    "http": {
+      "method": "GET",
+      "path": "/samples/data.csv",
+      "protocol": "HTTP/1.1",
+      "sourceIp": "127.0.0.1",
+      "userAgent": "Custom User Agent String"
+    },
+    "requestId": "eacb1caf-f656-4539-823d-40562c5f42c8",
+    "routeKey": "GET /{proxy+}",
+    "stage": "$default",
+    "time": "18/Jun/2022:03:05:38 +0000",
+    "timeEpoch": 1655521538,
+    "domainName": "localhost",
+    "domainPrefix": "localhost"
+  },
+  "body": "",
+  "pathParameters": {
+    "proxy": "data.csv"
+  },
+  "stageVariables": null,
+  "isBase64Encoded": false
+}

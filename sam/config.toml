@@ -1,0 +1,12 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "YOUR_PROJECT_DASH-function-stack"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-*"
+s3_prefix = "YOUR_PROJECT_ORIGIN_function"
+region = "us-east-1"
+confirm_changeset = false
+disable_rollback = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = ["ServerlasticFunction=*.dkr.ecr.us-east-1.amazonaws.com/YOUR_PROJECT_ORIGIN/YOUR_PROJECT_ORIGIN_function"]

@@ -1,0 +1,12 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "ruby-on-rails-function-stack"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-*"
+s3_prefix = "ruby_on_rails_function"
+region = "us-east-1"
+confirm_changeset = false
+disable_rollback = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = ["ServerlasticFunction=*.dkr.ecr.us-east-1.amazonaws.com/serverlastic*/serverlasticfunction*repo"]
